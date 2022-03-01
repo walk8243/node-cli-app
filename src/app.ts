@@ -4,11 +4,13 @@ const program = new Command();
 program
 	.name('@walk8243/app')
 	.description('Node.jsを使ってCLIアプリケーションの作成')
+	.version('1.0.0', '-V, --version', 'バージョンを表示する')
+	.helpOption('-h, --help', 'ヘルプを表示する')
 	.option('--first', '最初の区切りのみを表示する')
 	.option('-d, --debug', 'デバッグモードで実行する')
-	.option('-s, --separator <char>', 'コマンドライン引数の区切り文字を指定する', ',');
+	.option('-s, --separator <char>', 'コマンドライン引数の区切り文字を指定する', ',')
+	.parse();
 
-program.parse();
 const options = program.opts();
 console.log('options:', options);
 const limit = options.first ? 1 : undefined;
